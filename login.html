@@ -3,80 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - Medlimame</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="login-styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>تسجيل الدخول</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html#home">الرئيسية</a></li>
-                    <li><a href="index.html#courses">الدورات</a></li>
-                    <li><a href="index.html#portfolio">الأعمال الشخصية</a></li>
-                    <li><a href="index.html#about">من نحن</a></li>
-                    <li><a href="index.html#contact">اتصل بنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section>
-            <div class="container">
-                <h2>تسجيل الدخول</h2>
-                <form id="loginForm">
-                    <label for="loginEmail">البريد الإلكتروني:</label>
-                    <input type="email" id="loginEmail" name="loginEmail" required>
-                    <label for="loginPassword">كلمة المرور:</label>
-                    <input type="password" id="loginPassword" name="loginPassword" required>
-                    <button type="submit">تسجيل الدخول</button>
-                </form>
-            </div>
-        </section>
-        <section>
-            <div class="container">
-                <h2>إنشاء حساب جديد</h2>
-                <form id="signupForm">
-                    <label for="signupName">الاسم:</label>
-                    <input type="text" id="signupName" name="signupName" required>
-                    <label for="signupEmail">البريد الإلكتروني:</label>
-                    <input type="email" id="signupEmail" name="signupEmail" required>
-                    <label for="signupPassword">كلمة المرور:</label>
-                    <input type="password" id="signupPassword" name="signupPassword" required>
-                    <label for="confirmPassword">تأكيد كلمة المرور:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    <button type="submit">إنشاء حساب</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Medlimame. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // ارسل البيانات للتحقق منها
-        });
-
-        document.getElementById('signupForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var password = document.getElementById('signupPassword').value;
-            var confirmPassword = document.getElementById('confirmPassword').value;
-            if (password === confirmPassword) {
-                // ارسل البيانات للتخزين
-                alert('تم إنشاء الحساب بنجاح!');
-                // يمكنك توجيه المستخدم إلى صفحة تسجيل الدخول بعد إنشاء الحساب
-            } else {
-                alert('كلمة المرور غير متطابقة!');
-            }
-        });
-    </script>
+    <div class="login-container">
+        <form>
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+    <script src="login-scripts.js"></script>
 </body>
 </html>
