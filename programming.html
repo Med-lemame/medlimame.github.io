@@ -1,72 +1,80 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دورة البرمجة - Medlimame</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دورة البرمجة - Medlimame</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>دورة البرمجة</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html#home">الرئيسية</a></li>
-                    <li><a href="index.html#courses">الدورات</a></li>
-                    <li><a href="index.html#portfolio">الأعمال الشخصية</a></li>
-                    <li><a href="index.html#about">من نحن</a></li>
-                    <li><a href="index.html#contact">اتصل بنا</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container">
+      <h1>دورة البرمجة</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html#home">الرئيسية</a></li>
+          <li><a href="index.html#courses">الدورات</a></li>
+          <li><a href="index.html#portfolio">الأعمال الشخصية</a></li>
+          <li><a href="index.html#about">من نحن</a></li>
+          <li><a href="index.html#contact">اتصل بنا</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2>تفاصيل دورة البرمجة</h2>
+        <p>في هذه الدورة، سنتعلم أساسيات البرمجة باستخدام لغات البرمجة الحديثة...</p>
+        <form id="registrationForm">
+          <label for="name">الاسم:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">البريد الإلكتروني:</label>
+          <input type="email" id="email" name="email" required>
+          <button type="button" id="registerButton">تسجيل</button>
+        </form>
+      </div>
+    </section>
+
+    <div id="detailsPage" class="hidden">
+      <div class="container">
+        <h2>محتويات الدورة</h2>
+        <div class="content">
+          <img src="image1.jpg" alt="صورة 1" class="course-image">
+          <p>شرح تفصيلي للمحتوى المرتبط بالصورة الأولى.</p>
         </div>
-    </header>
-
-    <main>
-        <section>
-            <div class="container">
-                <h2>تفاصيل دورة البرمجة</h2>
-                <p>في هذه الدورة، سنتعلم أساسيات البرمجة باستخدام لغات البرمجة الحديثة...</p>
-                <form id="registrationForm">
-                    <label for="name">الاسم:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">البريد الإلكتروني:</label>
-                    <input type="email" id="email" name="email" required>
-                    <button type="submit">تسجيل</button>
-                </form>
-            </div>
-        </section>
-        <section id="detailsSection" style="display:none;">
-            <div class="container">
-                <h2>محتويات الدورة</h2>
-                <div class="content">
-                    <img src="image1.jpg" alt="صورة 1" class="course-image">
-                    <p>شرح تفصيلي للمحتوى المرتبط بالصورة الأولى.</p>
-                </div>
-                <div class="content">
-                    <img src="image2.jpg" alt="صورة 2" class="course-image">
-                    <p>شرح تفصيلي للمحتوى المرتبط بالصورة الثانية.</p>
-                </div>
-                <div class="content">
-                    <img src="image3.jpg" alt="صورة 3" class="course-image">
-                    <p>شرح تفصيلي للمحتوى المرتبط بالصورة الثالثة.</p>
-                </div>
-                <!-- أضف المزيد من الصور والنصوص حسب الحاجة -->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Medlimame. جميع الحقوق محفوظة.</p>
+        <div class="content">
+          <img src="image2.jpg" alt="صورة 2" class="course-image">
+          <p>شرح تفصيلي للمحتوى المرتبط بالصورة الثانية.</p>
         </div>
-    </footer>
+        <div class="content">
+          <img src="image3.jpg" alt="صورة 3" class="course-image">
+          <p>شرح تفصيلي للمحتوى المرتبط بالصورة الثالثة.</p>
+        </div>
+        </div>
+      <button id="closeButton">إغلاق</button>
+    </div>
+  </main>
 
-    <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('detailsSection').style.display = 'block';
-        });
-    </script>
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Medlimame. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script>
+    const registerButton = document.getElementById('registerButton');
+    const detailsPage = document.getElementById('detailsPage');
+    const closeButton = document.getElementById('closeButton');
+
+    registerButton.addEventListener('click', () => {
+      detailsPage.classList.remove('hidden'); // Show the pop-up page
+    });
+
+    closeButton.addEventListener('click', () => {
+      detailsPage.classList.add('hidden'); // Hide the pop-up page
+    });
+  </script>
 </body>
 </html>
