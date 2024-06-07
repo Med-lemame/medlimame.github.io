@@ -4,74 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medlimame</title>
+    <style>
+        /* أسلوب جديد للعناصر المخفية */
         .hidden {
             display: none;
         }
-        <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+        /* تنسيق لصورة المستخدم المصغرة */
+        #userThumbnail {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <h1>Medlimame</h1>
 
+    <div id="userThumbnail" class="hidden">
+        <!-- سيتم عرض صورة المستخدم هنا بمجرد تسجيل الدخول -->
+        <img id="loggedInUserImage" src="user.png" alt="User Image">
+    </div>
+
     <nav>
+        <!-- الأزرار للتنقل بين الأقسام -->
         <button onclick="showSection('loginSection')">تسجيل الدخول</button>
         <button onclick="showSection('signupSection')">إنشاء حساب</button>
         <button onclick="showSection('coursesSection')">الدورات</button>
         <button onclick="showSection('projectsSection')">الأعمال الشخصية</button>
-         <ul>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
-                    <li><a href="#login">تسجيل الدخول</a></li>
-                    <li><a href="#signup">إنشاء حساب</a></li>
-                </ul>
+        <button onclick="showSection('aboutSection')">من نحن</button>
     </nav>
-    <main>
-        <section id="home">
-            <div class="container">
-                <h2>مرحبًا بكم في موقع Medlimame</h2>
-                <p>نقدم دورات في البرمجة، التصميم، والتسويق الرقمي، بالإضافة إلى عرض أعمالنا الشخصية.</p>
-            </div>
-        </section>
-        
+
+    <!-- أقسام الصفحة -->
     <section id="loginSection" class="hidden">
-        <h2>تسجيل الدخول</h2>
-        <form id="loginForm" action="http://localhost:3000/login" method="POST" onsubmit="handleLogin(event)">
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">تسجيل الدخول</button>
-        </form>
-        <p id="loginMessage" class="hidden"></p>
-        <img id="loginUserImage" class="hidden" src="user.png" alt="User Image">
+        <!-- تسجيل الدخول -->
     </section>
 
     <section id="signupSection" class="hidden">
-        <h2>إنشاء حساب</h2>
-        <form id="signupForm" action="http://localhost:3000/signup" method="POST" onsubmit="handleSignup(event)">
-            <label for="name">الاسم:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">إنشاء الحساب</button>
-        </form>
-        <p id="signupMessage" class="hidden"></p>
-        <img id="signupUserImage" class="hidden" src="user.png" alt="User Image">
-        <button id="goToLoginButton" class="hidden" onclick="showSection('loginSection')">تسجيل الدخول</button>
+        <!-- إنشاء حساب -->
     </section>
-   <section id="coursesSection" class="hidden">
-        <h2>الدورات</h2>
-        <p>تفاصيل الدورات.</p>
+
+    <section id="coursesSection" class="hidden">
+        <!-- الدورات -->
     </section>
 
     <section id="projectsSection" class="hidden">
-        <h2>الأعمال الشخصية</h2>
-        <p>تفاصيل الأعمال الشخصية.</p>
+        <!-- الأعمال الشخصية -->
+    </section>
+
+    <section id="aboutSection" class="hidden">
+        <!-- من نحن -->
     </section>
 
     <script>
+        // الدالة لعرض القسم المحدد وإخفاء البقية
         function showSection(sectionId) {
             document.querySelectorAll('section').forEach(section => {
                 section.classList.add('hidden');
@@ -79,35 +66,12 @@
             document.getElementById(sectionId).classList.remove('hidden');
         }
 
-        function handleSignup(event) {
-            event.preventDefault();
-            const form = document.getElementById('signupForm');
-            const message = document.getElementById('signupMessage');
-            const userImage = document.getElementById('signupUserImage');
-            const goToLoginButton = document.getElementById('goToLoginButton');
-
-            fetch(form.action, {
-                method: form.method,
-                body: new URLSearchParams(new FormData(form)),
-            })
-            .then(response => response.text())
-            .then(result => {
-                message.textContent = result;
-                message.classList.remove('hidden');
-                userImage.classList.remove('hidden');
-                goToLoginButton.classList.remove('hidden');
-                form.classList.add('hidden');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-});
-        }
-
+        // الدالة لمعالجة عملية تسجيل الدخول
         function handleLogin(event) {
             event.preventDefault();
             const form = document.getElementById('loginForm');
             const message = document.getElementById('loginMessage');
-            const userImage = document.getElementById('loginUserImage');
+            const userThumbnail = document.getElementById('userThumbnail');
 
             fetch(form.action, {
                 method: form.method,
@@ -117,8 +81,8 @@
             .then(result => {
                 message.textContent = result;
                 message.classList.remove('hidden');
-                userImage.classList.remove('hidden');
-                form.classList.add('hidden');
+                userThumbnail.classList.remove('hidden'); // عرض صورة المستخدم
+                showSection('coursesSection'); // تحويل المستخدم إلى قسم الدورات بعد تسجيل الدخول
             })
             .catch(error => {
                 console.error('Error:', error);
