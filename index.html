@@ -4,114 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medlimame</title>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Medlimame</h1>
+    <header>
+        <div class="container">
+            <h1>Medlimame</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#courses">الدورات</a></li>
+                    <li><a href="#portfolio">الأعمال الشخصية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <nav>
-        <button onclick="showSection('loginSection')">تسجيل الدخول</button>
-        <button onclick="showSection('signupSection')">إنشاء حساب</button>
-        <button onclick="showSection('coursesSection')">الدورات</button>
-        <button onclick="showSection('projectsSection')">الأعمال الشخصية</button>
-    </nav>
+    <main>
+        <section id="home">
+            <div class="container">
+                <h2>مرحبًا بكم في موقع Medlimame</h2>
+                <p>نقدم دورات في البرمجة، التصميم، والتسويق الرقمي، بالإضافة إلى عرض أعمالنا الشخصية.</p>
+            </div>
+        </section>
 
-    <section id="loginSection" class="hidden">
-        <h2>تسجيل الدخول</h2>
-        <form id="loginForm" action="http://localhost:3000/login" method="POST" onsubmit="handleLogin(event)">
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">تسجيل الدخول</button>
-        </form>
-        <p id="loginMessage" class="hidden"></p>
-        <img id="loginUserImage" class="hidden" src="user.png" alt="User Image">
-    </section>
+        <section id="courses">
+            <div class="container">
+                <h2>الدورات</h2>
+                <div class="course">
+                    <h3><a href="programming.html">دورة البرمجة</a></h3>
+                    <p>تعلم أساسيات البرمجة وتطوير التطبيقات.</p>
+                </div>
+                <div class="course">
+                    <h3><a href="design.html">دورة التصميم</a></h3>
+                    <p>اكتشف مهارات التصميم الجرافيكي وإنشاء تصميمات مذهلة.</p>
+                </div>
+                <div class="course">
+                    <h3><a href="marketing.html">دورة التسويق الرقمي</a></h3>
+                    <p>افهم استراتيجيات التسويق الرقمي وكيفية تطبيقها.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="signupSection" class="hidden">
-        <h2>إنشاء حساب</h2>
-        <form id="signupForm" action="http://localhost:3000/signup" method="POST" onsubmit="handleSignup(event)">
-            <label for="name">الاسم:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">إنشاء الحساب</button>
-        </form>
-        <p id="signupMessage" class="hidden"></p>
-        <img id="signupUserImage" class="hidden" src="user.png" alt="User Image">
-        <button id="goToLoginButton" class="hidden" onclick="showSection('loginSection')">تسجيل الدخول</button>
-    </section>
+        <section id="portfolio">
+            <div class="container">
+                <h2>الأعمال الشخصية</h2>
+                <div class="work">
+                    <h3><a href="project1.html">مشروع 1</a></h3>
+                    <p>وصف مختصر للمشروع.</p>
+                </div>
+                <div class="work">
+                    <h3><a href="project2.html">مشروع 2</a></h3>
+                    <p>وصف مختصر للمشروع.</p>
+                </div>
+                <div class="work">
+                    <h3><a href="project3.html">مشروع 3</a></h3>
+                    <p>وصف مختصر للمشروع.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="coursesSection" class="hidden">
-        <h2>الدورات</h2>
-        <p>تفاصيل الدورات.</p>
-    </section>
+        <section id="about">
+            <div class="container">
+                <h2>من نحن</h2>
+                <p>نحن فريق متخصص في تقديم دورات تعليمية في مختلف المجالات مثل البرمجة، التصميم، والتسويق الرقمي.</p>
+            </div>
+        </section>
 
-    <section id="projectsSection" class="hidden">
-        <h2>الأعمال الشخصية</h2>
-        <p>تفاصيل الأعمال الشخصية.</p>
-    </section>
+        <section id="contact">
+            <div class="container">
+                <h2>اتصل بنا</h2>
+                <form>
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">الرسالة:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">إرسال</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            document.getElementById(sectionId).classList.remove('hidden');
-        }
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Medlimame. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
 
-        function handleSignup(event) {
-            event.preventDefault();
-            const form = document.getElementById('signupForm');
-            const message = document.getElementById('signupMessage');
-            const userImage = document.getElementById('signupUserImage');
-            const goToLoginButton = document.getElementById('goToLoginButton');
-
-            fetch(form.action, {
-                method: form.method,
-                body: new URLSearchParams(new FormData(form)),
-            })
-            .then(response => response.text())
-            .then(result => {
-                message.textContent = result;
-                message.classList.remove('hidden');
-                userImage.classList.remove('hidden');
-                goToLoginButton.classList.remove('hidden');
-                form.classList.add('hidden');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-});
-        }
-
-        function handleLogin(event) {
-            event.preventDefault();
-            const form = document.getElementById('loginForm');
-            const message = document.getElementById('loginMessage');
-            const userImage = document.getElementById('loginUserImage');
-
-            fetch(form.action, {
-                method: form.method,
-                body: new URLSearchParams(new FormData(form)),
-            })
-            .then(response => response.text())
-            .then(result => {
-                message.textContent = result;
-                message.classList.remove('hidden');
-                userImage.classList.remove('hidden');
-                form.classList.add('hidden');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
