@@ -6,8 +6,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+// سلسلة الاتصال الخاصة بـ MongoDB Atlas
+const dbURI = 'mongodb+srv://medlimame9:<f9nrXY9ervGchqe7>@cluster0.txtjpyt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0;
+
 // توصيل قاعدة البيانات
-mongoose.connect('mongodb://localhost:27017/usersDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 // تعريف مخطط المستخدم
