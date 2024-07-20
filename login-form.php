@@ -2,7 +2,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>User Login</title>
-<link href="./view/css/form.css" rel="stylesheet" type="text/css" />
+<link href="form.css" rel="stylesheet" type="text/css" />
 <style>
 body {
 	font-family: Arial;
