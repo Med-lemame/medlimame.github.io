@@ -1,20 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="path/to/your/css/file.css">
+    <title>Medlimame</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Website</h1>
+        <div class="container">
+            <h1>Medlimame</h1>
+            <div id="user-avatar" class="hidden"></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#" id="toggle-courses">الدورات</a></li>
+                    <li><a href="#" id="toggle-portfolio">الأعمال الشخصية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li id="login"><a href="view/login.html">تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <p>This is the homepage content.</p>
+        <section id="home">
+            <div class="container">
+                <h2>مرحبًا بكم في موقع Medlimame</h2>
+                <p>نقدم دورات في البرمجة، التصميم، والتسويق الرقمي، بالإضافة إلى عرض أعمالنا الشخصية.</p>
+            </div>
+        </section>
+
+        <section id="courses" class="hidden-section">
+            <div class="container">
+                <h2>الدورات</h2>
+                <div class="course">
+                    <h3><a href="programming.html">دورة البرمجة</a></h3>
+                    <p>تعلم أساسيات البرمجة وتطوير التطبيقات.</p>
+                </div>
+                <div class="course">
+                    <h3><a href="design.html">دورة التصميم</a></h3>
+                    <p>اكتشف مهارات التصميم الجرافيكي وإنشاء تصميمات مذهلة.</p>
+                </div>
+                <div class="course">
+                    <h3><a href="marketing.html">دورة التسويق الرقمي</a></h3>
+                    <p>افهم استراتيجيات التسويق الرقمي وكيفية تطبيقها.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="hidden-section">
+            <div class="container">
+                <h2>الأعمال الشخصية</h2>
+                <div class="work">
+                    <h3><a href="project1.html">مشروع 1</a></h3>
+                    <p>وصف مختصر للمشروع.</p>
+                </div>
+                <div class="work">
+                    <h3><a href="project2.html">مشروع 2</a></h3>
+                    <p>وصف مختصر للمشروع.</p>
+                </div>
+                <div class="work">
+                    <h3><a href="project3.html">مشروع 3</a></h3>
+                    <p>وصف مختصر للمشروع.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>من نحن</h2>
+                <p>نحن فريق متخصص في تقديم دورات تعليمية في مختلف المجالات مثل البرمجة، التصميم، والتسويق الرقمي.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>اتصل بنا</h2>
+                <form>
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">الرسالة:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">إرسال</button>
+                </form>
+            </div>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Your Website. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Medlimame. جميع الحقوق محفوظة.</p>
+        </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
